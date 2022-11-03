@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function Navbar({ handleLogout, currentUser }) {
     // console.log(currentUser)
+    const [errors, setErrors] = useState('')
+
     function handleClick() {
         fetch("http://localhost:3001/logout", {
             method: "DELETE",
@@ -10,13 +12,12 @@ export default function Navbar({ handleLogout, currentUser }) {
                 "Content-Type": "application/json",
             },
 
-        }).then(res => {
-            if (res.ok) {
-                console.log(res)
-                res.json().then(data => handleLogout())
-                // this.props.history.push('/')
+        }).then(res => res.json())
+        .then(data => {
+            if (data.errors) {
+                setErrors(data.errors)
             } else {
-                // res.json().then(data => setErrors(data))
+                handleLogout()
             }
         })
     }

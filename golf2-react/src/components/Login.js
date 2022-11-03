@@ -10,32 +10,37 @@ export default function Login({ handleLogin }) {
 
     function handleSubmit(e) {
         e.preventDefault()
-        let user = {
-            username: username,
-            email: emailAddress,
-            password: password
-        }
-        // console.log(username)
-        // console.log(password)
-        // console.log(emailAddress)
-        // TODO: credentials that were typed in to login display in the URL
-        fetch("http://localhost:3001/login", {
-            method: "POST",
-            credentials: 'include',
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ user }),
-        }).then(res => {
-            if (res.ok) {
-                console.log(res)
-                res.json().then(data => handleLogin(data))
-            } else {
-                // res.json().then(data => setErrors(data))
-                // TODO: not working when incorrect login
-                navigate('/')
+        if (username !== '' && emailAddress !== '' && password !== '' ){
+            let user = {
+                username: username,
+                email: emailAddress,
+                password: password
             }
-        })
+            // console.log(username)
+            // console.log(password)
+            // console.log(emailAddress)
+            // TODO: credentials that were typed in to login display in the URL
+            fetch("http://localhost:3001/login", {
+                method: "POST",
+                credentials: 'include',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ user }),
+            }).then(res => res.json())
+            .then(data => {
+                if (data.errors) {
+                    setErrors(data.errors)
+                } else {
+                    handleLogin(data)
+                }
+            // TODO: not working when incorrect login
+            // navigate('/')
+                // }
+            })
+        } else {
+            console.log('must fill out all fields')
+        }
     }
     return (
         <div>
@@ -65,9 +70,13 @@ export default function Login({ handleLogin }) {
                     Log In
                 </button>
                 <div>
-                    or <Link to='/signup'>sign up</Link>
-                    {errors}
+                    or <Link to='/signup'>sign up</Link>     
                 </div>
+                {errors ? (
+                        <div> {errors} </div>
+                    ) : (
+                        <div> </div>
+                    )}
             </form>
         </div>
     )
