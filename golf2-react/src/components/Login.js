@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function Login({ handleLogin }) {
     const [username, setUsername] = useState('')
@@ -18,7 +18,6 @@ export default function Login({ handleLogin }) {
         // console.log(username)
         // console.log(password)
         // console.log(emailAddress)
-        
         // TODO: credentials that were typed in to login display in the URL
         fetch("http://localhost:3001/login", {
             method: "POST",
@@ -66,7 +65,7 @@ export default function Login({ handleLogin }) {
                     Log In
                 </button>
                 <div>
-                    {/* or <Link to='/signup'>sign up</Link> */}
+                    or <Link to='/signup'>sign up</Link>
                     {errors}
                 </div>
             </form>
