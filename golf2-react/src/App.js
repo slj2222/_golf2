@@ -4,6 +4,7 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import HomeContainer from './components/HomeContainer';
 import Navbar from './components/Navbar';
+import DayContainer from './components/DayContainer';
 
 // import logo from './logo.svg';
 import './App.css';
@@ -40,7 +41,82 @@ function App() {
   function handleLogout() {
     setCurrentUser(null)
   }
+// _______________________________________________________________________________________________________________________________________
+const [allTeeDays, setAllTeeDays] = useState([])
 
+const rightNowDate = new Date()
+// console.log(rightNow)
+const rightNowDateOnly = new Date(rightNowDate.setHours(0, 0, 0, 0))
+// console.log(rightNowDateOnly)
+
+const yesterdayDate = new Date(rightNowDate.setDate(rightNowDate.getDate() - 1))
+// console.log(yesterdayDate)
+
+const yesterdayDateOnly = new Date(yesterdayDate.setHours(0, 0, 0, 0))
+// console.log(yesterdayDateOnly)
+
+useEffect(() => {   
+  // const teeTimeDayArrayUnix = []
+  const tempArr = []
+  let n = 14
+    for (let i = 0; i < n; i++) {
+      // const sevenAm = new Date(rightNow.setHours(i,0,0))
+      const twoWeeksOut = yesterdayDateOnly.setDate(yesterdayDateOnly.getDate() + 1)
+      // console.log(typeof(twoWeeksOut))
+      const twoWeeksOutString = new Date(twoWeeksOut)
+      // console.log((twoWeeksOutString))
+      
+      tempArr.push(twoWeeksOutString)
+      // console.log(sevenAm)
+    }
+    setAllTeeDays(tempArr)
+}, [])
+
+
+// function thirteenDays() {
+//
+// }
+
+console.log(allTeeDays)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// _______________________________________________________________________________________________________________________________________
   return (
     <Router>
       {/* {currentUser ? (
@@ -59,7 +135,8 @@ function App() {
                         <Route path="/:id/reserve" element={<ReserveView getCSRFToken={getCSRFToken} currentUser={currentUser}/>}/>        
                         <Route path="/reservations" element={<MyReservationsView myReservations={myReservations} getCSRFToken={getCSRFToken} />} /> */}
 
-            <Route path='/' element={<HomeContainer currentUser={currentUser} />} />
+            <Route path='/' element={<HomeContainer currentUser={currentUser} allTeeDays={allTeeDays} />} />
+            <Route path='/:id' element={<DayContainer rightNowDateOnly={rightNowDateOnly} />} />
           </Routes>
 
         </>
