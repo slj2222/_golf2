@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Login from './components/Login';
 import Signup from './components/Signup';
 import HomeContainer from './components/HomeContainer';
 import Navbar from './components/Navbar';
 import DayContainer from './components/DayContainer';
+// import { useNavigate } from 'react-router-dom';
 
 // import logo from './logo.svg';
 import './App.css';
@@ -13,6 +14,7 @@ function App() {
 
   const [currentUser, setCurrentUser] = useState(null)
   console.log(currentUser)
+  
 
   useEffect(() => {
     fetch("http://localhost:3001/logged_in", { credentials: 'include' })
@@ -40,6 +42,8 @@ function App() {
 
   function handleLogout() {
     setCurrentUser(null)
+    // TODO: when logout, doesnt reroute back to home login page
+    // navigate('/')
   }
 // _______________________________________________________________________________________________________________________________________
 const [allTeeDays, setAllTeeDays] = useState([])
@@ -77,7 +81,7 @@ useEffect(() => {
 //
 // }
 
-console.log(allTeeDays)
+// console.log(allTeeDays)
 
 
 
@@ -130,10 +134,7 @@ console.log(allTeeDays)
         <>
           <Navbar currentUser={currentUser} handleLogout={handleLogout} />
           <Routes>
-            {/* <Route path="/" element={<MonthView availableTeeTimeDayArray={availableTeeTimeDayArray} currentUser={currentUser} />}/>
-                        <Route path="/:id" element={<DayView currentUser={currentUser} apiReservations={apiReservations}/>}/>
-                        <Route path="/:id/reserve" element={<ReserveView getCSRFToken={getCSRFToken} currentUser={currentUser}/>}/>        
-                        <Route path="/reservations" element={<MyReservationsView myReservations={myReservations} getCSRFToken={getCSRFToken} />} /> */}
+            
 
             <Route path='/' element={<HomeContainer currentUser={currentUser} allTeeDays={allTeeDays} />} />
             <Route path='/:id' element={<DayContainer rightNowDateOnly={rightNowDateOnly} />} />
