@@ -9,3 +9,5 @@
 # seeds for users
 u1 = User.create(username: 'test1', email: 'test1@gmail.com', password: '123')
 
+# seeds for reservations
+# r1 = Reservation.create(userId: u1.id, reservationTimestamp: '')

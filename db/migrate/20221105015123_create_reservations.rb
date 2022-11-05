@@ -3,7 +3,7 @@ class CreateReservations < ActiveRecord::Migration[7.0]
     create_table :reservations do |t|
       t.integer :userId
       t.string :reservationTimestamp
-      t.string :numOfPlayers
+      t.integer :numOfPlayers
 
       t.timestamps
     end

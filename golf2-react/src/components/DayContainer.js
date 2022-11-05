@@ -14,7 +14,7 @@ export default function DayContainer({ rightNowDateOnly }) {
 
     useEffect(() => {
 
-        if (id.toString() === rightNowDateOnly.toString()) {
+        if (thisDay.toString() === rightNowDateOnly.toString()) {
             const thisDayCurrent = Date.now()
             // console.log(thisDayCurrent)
             // console.log("same day")

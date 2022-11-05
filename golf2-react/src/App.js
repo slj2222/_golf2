@@ -138,8 +138,9 @@ useEffect(() => {
             
 
             <Route path='/' element={<HomeContainer currentUser={currentUser} allTeeDays={allTeeDays} />} />
+            
             <Route path='/:id' element={<DayContainer rightNowDateOnly={rightNowDateOnly} />} />
-            <Route path='/:id/:id' element={<ReserveContainer />} />
+            <Route path='/:id/:id' element={<ReserveContainer currentUser={currentUser} />} />
           </Routes>
 
         </>
