@@ -14,7 +14,20 @@ function App() {
 
   const [currentUser, setCurrentUser] = useState(null)
   console.log(currentUser)
-  
+
+  const [allTeeDays, setAllTeeDays] = useState([])
+
+  const rightNowDate = new Date()
+  // console.log(rightNow)
+  const rightNowDateOnly = new Date(rightNowDate.setHours(0, 0, 0, 0))
+  // console.log(rightNowDateOnly)
+
+  const yesterdayDate = new Date(rightNowDate.setDate(rightNowDate.getDate() - 1))
+  // console.log(yesterdayDate)
+
+  const yesterdayDateOnly = new Date(yesterdayDate.setHours(0, 0, 0, 0))
+  // console.log(yesterdayDateOnly)
+
   useEffect(() => {
     fetch("http://localhost:3001/logged_in", { credentials: 'include' })
       .then((response) =>
@@ -42,43 +55,28 @@ function App() {
   function handleLogout() {
     setCurrentUser(null)
   }
-// _______________________________________________________________________________________________________________________________________
-const [allTeeDays, setAllTeeDays] = useState([])
 
-const rightNowDate = new Date()
-// console.log(rightNow)
-const rightNowDateOnly = new Date(rightNowDate.setHours(0, 0, 0, 0))
-// console.log(rightNowDateOnly)
+ 
 
-const yesterdayDate = new Date(rightNowDate.setDate(rightNowDate.getDate() - 1))
-// console.log(yesterdayDate)
-
-const yesterdayDateOnly = new Date(yesterdayDate.setHours(0, 0, 0, 0))
-// console.log(yesterdayDateOnly)
-
-useEffect(() => {   
-  // const teeTimeDayArrayUnix = []
-  const tempArr = []
-  let n = 14
+  useEffect(() => {
+    const tempArr = []
+    let n = 14
     for (let i = 0; i < n; i++) {
       // const sevenAm = new Date(rightNow.setHours(i,0,0))
       const twoWeeksOut = yesterdayDateOnly.setDate(yesterdayDateOnly.getDate() + 1)
       // console.log(typeof(twoWeeksOut))
       const twoWeeksOutString = new Date(twoWeeksOut)
       // console.log((twoWeeksOutString))
-      
+
       tempArr.push(twoWeeksOutString)
       // console.log(sevenAm)
     }
     setAllTeeDays(tempArr)
-}, [])
+  }, [])
 
+  // _______________________________________________________________________________________________________________________________________
 
-// function thirteenDays() {
-//
-// }
-
-// console.log(allTeeDays)
+  
 
 
 
@@ -112,12 +110,7 @@ useEffect(() => {
 
 
 
-
-
-
-
-
-// _______________________________________________________________________________________________________________________________________
+  // _______________________________________________________________________________________________________________________________________
   return (
     <Router>
       {/* {currentUser ? (
@@ -131,10 +124,10 @@ useEffect(() => {
         <>
           <Navbar currentUser={currentUser} handleLogout={handleLogout} />
           <Routes>
-            
+
 
             <Route path='/' element={<HomeContainer currentUser={currentUser} allTeeDays={allTeeDays} />} />
-            <Route path='/calendar/:id' element={<DayContainer rightNowDateOnly={rightNowDateOnly} />} />
+            <Route path='/calendar/:id' element={<DayContainer rightNowDateOnly={rightNowDateOnly}  />} />
             <Route path='/calendar/:day/:id' element={<ReserveContainer currentUser={currentUser} />} />
           </Routes>
 
@@ -142,8 +135,8 @@ useEffect(() => {
       ) : (
         <>
           <Routes>
-            <Route path="/" element={<Login handleLogin={handleLogin} handleLogout={handleLogout}/>} />
-            <Route path="/signup" element={<Signup handleLogin={handleLogin}/>} />
+            <Route path="/" element={<Login handleLogin={handleLogin} handleLogout={handleLogout} />} />
+            <Route path="/signup" element={<Signup handleLogin={handleLogin} />} />
           </Routes>
         </>
       )}
