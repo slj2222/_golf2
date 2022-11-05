@@ -1,14 +1,11 @@
 import React, { useState } from "react";
-import { Outlet, useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 
 export default function ReserveContainer({ currentUser }) {
     const defaultPlayers = 1
     const [numberOfPlayers, setNumberOfPlayers] = useState(defaultPlayers)
     const [errors, setErrors] = useState([])
-    // const { path } = useLocation()
-    // console.log(path)
-    console.log(window.location.pathname)
     const { id } = useParams()
     console.log(id)
 
@@ -87,7 +84,6 @@ export default function ReserveContainer({ currentUser }) {
                         
                 <button type="sumbit">Confirm Reservation</button>
             </form>
-            <Outlet />
         </div>
     )
 }

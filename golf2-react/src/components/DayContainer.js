@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import DayTimeCard from "./DayTimeCard";
-import { Outlet } from "react-router-dom";
 
 export default function DayContainer({ rightNowDateOnly }) {
     // console.log(rightNowDateOnly)
@@ -83,7 +82,6 @@ export default function DayContainer({ rightNowDateOnly }) {
             <div>
                 {mapThisDayTeeTimes}
             </div>
-            <Outlet />
         </>
     )
 }
