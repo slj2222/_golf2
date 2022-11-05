@@ -9,7 +9,7 @@ export default function CalendarContainer({ day }) {
 
     return (
         <div>
-            <Link to={`/${day.toLocaleDateString().replaceAll('/', '-')}`}>
+            <Link to={`/calendar/${day.toLocaleDateString().replaceAll('/', '-')}`}>
                 <span>{day.toDateString()}</span>
             </Link>
             <div>()</div>

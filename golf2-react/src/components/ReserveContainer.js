@@ -1,13 +1,21 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 
 
 export default function ReserveContainer({ currentUser }) {
+    // console.log(currentUser.user.id)
     const defaultPlayers = 1
     const [numberOfPlayers, setNumberOfPlayers] = useState(defaultPlayers)
     const [errors, setErrors] = useState([])
     const { id } = useParams()
     console.log(id)
+    console.log(new Date(window.location.pathname))
+
+    const location = useLocation()
+    const { from } = location.state
+    console.log(from)
+    const reservationDateString = new Date(`${from} ${id}`).toString()
+    console.log(reservationDateString)
 
     const timestampString = id.toString()
     console.log(timestampString)
@@ -22,7 +30,9 @@ export default function ReserveContainer({ currentUser }) {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-
+                    user_id: currentUser.user.id,
+                    reservation_timestamp: reservationDateString,
+                    number_of_players: numberOfPlayers
                  }),
             }).then(res => res.json())
             .then(data => {

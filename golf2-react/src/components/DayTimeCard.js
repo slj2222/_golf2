@@ -16,7 +16,7 @@ export default function DayTimeCard({ time }) {
 
     return (
         <div>
-            <Link to={`/${id}/${timeFormatted}`}>
+            <Link to={`/calendar/${id}/${timeFormatted}`} state={{ from: `${id}`}}>
                 {timeFormatted}
             </Link>
         </div>

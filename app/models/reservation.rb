@@ -1,5 +1,5 @@
 class Reservation < ApplicationRecord
     belongs_to :user
 
-    validates :reservation_time, presence: true
+    validates :reservation_timestamp, presence: true
 end

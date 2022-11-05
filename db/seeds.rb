@@ -10,4 +10,6 @@
 u1 = User.create(username: 'test1', email: 'test1@gmail.com', password: '123')
 
 # seeds for reservations
-# r1 = Reservation.create(userId: u1.id, reservationTimestamp: '')
+r1 = Reservation.create(user_id: u1.id, reservation_timestamp: 'Sun Nov 06 2022 08:00:00 GMT-0600 (Central Standard Time)', number_of_players: 1)
+
+puts "done seeding"
