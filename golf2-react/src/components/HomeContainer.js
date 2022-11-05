@@ -1,5 +1,6 @@
 import React from "react";
 import CalendarContainer from "./CalendarContainer";
+import { Outlet } from "react-router-dom";
 
 export default function HomeContainer({ allTeeDays }) {
 
@@ -10,6 +11,7 @@ export default function HomeContainer({ allTeeDays }) {
         <div>
             **HOME**
             {mapAllTeeDays}
+            <Outlet />
         </div>
     )
 }

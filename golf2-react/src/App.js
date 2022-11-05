@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate, Link } from "react-router-dom";
 import Login from './components/Login';
 import Signup from './components/Signup';
 import HomeContainer from './components/HomeContainer';
@@ -124,6 +124,13 @@ useEffect(() => {
 // _______________________________________________________________________________________________________________________________________
   return (
     <Router>
+
+
+      {/* <nav>
+        <Link to='/'>Home</Link>
+        <Link to='/:id'>Home</Link>
+        <Link to='/'>Home</Link>
+      </nav> */}
       {/* {currentUser ? (
                 <>
                     <Navbar currentUser={currentUser} handleLogout={handleLogout} getCSRFToken={getCSRFToken} allPublicMembers={allPublicMembers}/>
