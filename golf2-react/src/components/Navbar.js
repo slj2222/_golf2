@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { Link } from "react-router-dom";
 export default function Navbar({ handleLogout, currentUser }) {
     // console.log(currentUser)
     const [errors, setErrors] = useState('')
@@ -31,7 +31,7 @@ export default function Navbar({ handleLogout, currentUser }) {
             <div>
                 <span>{currentUser.username}</span>
                 <span>
-                    <button onClick={handleClick}>Logout</button>
+                    <Link to="/" onClick={handleClick}>Logout</Link>                
                 </span>
             </div>
         </>

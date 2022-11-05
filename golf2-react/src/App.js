@@ -6,7 +6,6 @@ import HomeContainer from './components/HomeContainer';
 import Navbar from './components/Navbar';
 import DayContainer from './components/DayContainer';
 import ReserveContainer from './components/ReserveContainer';
-// import { useNavigate } from 'react-router-dom';
 
 // import logo from './logo.svg';
 import './App.css';
@@ -16,7 +15,6 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null)
   console.log(currentUser)
   
-
   useEffect(() => {
     fetch("http://localhost:3001/logged_in", { credentials: 'include' })
       .then((response) =>
@@ -43,8 +41,6 @@ function App() {
 
   function handleLogout() {
     setCurrentUser(null)
-    // TODO: when logout, doesnt reroute back to home login page
-    // navigate('/')
   }
 // _______________________________________________________________________________________________________________________________________
 const [allTeeDays, setAllTeeDays] = useState([])
