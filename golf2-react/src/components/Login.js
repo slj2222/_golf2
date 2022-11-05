@@ -32,7 +32,7 @@ export default function Login({ handleLogin }) {
                 if (data.errors) {
                     setErrors(data.errors)
                 } else {
-                    handleLogin(data)
+                    handleLogin(data.user)
                 }
             // TODO: not working when incorrect login
             // navigate('/')
@@ -43,8 +43,8 @@ export default function Login({ handleLogin }) {
         }
     }
     return (
-        <div>
-            <form onSubmit={(e) => handleSubmit(e)}>
+        <div className="login-outer flex">
+            <form className="flex" onSubmit={(e) => handleSubmit(e)}>
                 <input
                     placeholder="username"
                     type="text"
@@ -69,7 +69,7 @@ export default function Login({ handleLogin }) {
                 <button placeholder="submit" type="submit">
                     Log In
                 </button>
-                <div>
+                <div className="button">
                     or <Link to='/signup'>sign up</Link>     
                 </div>
                 {errors ? (

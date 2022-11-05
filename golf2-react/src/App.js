@@ -5,6 +5,7 @@ import Signup from './components/Signup';
 import HomeContainer from './components/HomeContainer';
 import Navbar from './components/Navbar';
 import DayContainer from './components/DayContainer';
+import ReserveContainer from './components/ReserveContainer';
 // import { useNavigate } from 'react-router-dom';
 
 // import logo from './logo.svg';
@@ -138,6 +139,7 @@ useEffect(() => {
 
             <Route path='/' element={<HomeContainer currentUser={currentUser} allTeeDays={allTeeDays} />} />
             <Route path='/:id' element={<DayContainer rightNowDateOnly={rightNowDateOnly} />} />
+            <Route path='/:id/:id' element={<ReserveContainer />} />
           </Routes>
 
         </>

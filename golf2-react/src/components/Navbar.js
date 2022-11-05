@@ -29,7 +29,7 @@ export default function Navbar({ handleLogout, currentUser }) {
                 <span>Home</span>
             </div>
             <div>
-                <span>{currentUser.user.username}</span>
+                <span>{currentUser.username}</span>
                 <span>
                     <button onClick={handleClick}>Logout</button>
                 </span>
