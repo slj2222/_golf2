@@ -30,6 +30,10 @@ html {
   margin-top: 20%;
 }
 
+#root {
+  height: 100%;
+}
+
 form {
   display: flex;
 }
@@ -51,3 +55,30 @@ button {
   justify-content: space-evenly;
 }
 
+.outer-flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 65%;
+}
+
+.outer-flex-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.day-time-card {
+  width: 25%;
+  height: 25%;
+  text-align: center;
+}
+
+.week-time-card {
+  width: 20%;
+  height: 70%;
+}
+
+.h45 {
+  height: 45%;
+}

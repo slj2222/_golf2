@@ -7,9 +7,12 @@ export default function HomeContainer({ allTeeDays }) {
         <CalendarContainer key={day} day={day}/>
     ))
     return (
-        <div>
+        <div className="outer-flex-column">
             **HOME**
-            {mapAllTeeDays}
+            <div className="outer-flex-row four">
+                {mapAllTeeDays}
+            </div>
+            
         </div>
     )
 }

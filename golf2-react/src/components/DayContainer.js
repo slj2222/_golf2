@@ -136,16 +136,17 @@ export default function DayContainer({ rightNowDateOnly }) {
     ))
 
     return (
-        <>
+        
+        <div className="outer-flex-column">
             <div>
                 {id.toString()}
             </div>
             <div>
                 ()
             </div>
-            <div>
+            <div className="outer-flex-row">
                 {mapThisDayTeeTimes}
             </div>
-        </>
+        </div>
     )
 }

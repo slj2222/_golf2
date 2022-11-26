@@ -8,11 +8,11 @@ export default function CalendarContainer({ day }) {
     
 
     return (
-        <div>
+        <div className="week-time-card">
             <Link to={`/calendar/${day.toLocaleDateString().replaceAll('/', '-')}`}>
                 <span>{day.toDateString()}</span>
             </Link>
-            <div>()</div>
+            
         </div>
     )
 }
