@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   
   resources :users, only: [:create, :show, :index]
   resources :reservations, only: [:create, :show, :index]
+  get '/myreservations/', to: 'reservations#myReservations'
   # post 'reservations/(.:q)', to: 'reservations#show' 
 end

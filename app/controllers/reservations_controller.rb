@@ -4,6 +4,11 @@ class ReservationsController < ApplicationController
         thisDayReservation = Reservation.where("reservation_timestamp LIKE ?", "#{query_params[:q]}%").all
         render json: thisDayReservation
     end
+
+    def myReservations
+        myReservations = Reservation.where(user_id: user_params[:u])
+        render json: myReservations
+    end
     
     def create 
         newReservation = Reservation.create(newReservationParams)
@@ -22,5 +27,9 @@ class ReservationsController < ApplicationController
 
     def query_params
         params.permit(:q)
+    end
+
+    def user_params
+        params.permit(:u)
     end
 end

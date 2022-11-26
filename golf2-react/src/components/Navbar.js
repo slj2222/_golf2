@@ -27,7 +27,12 @@ export default function Navbar({ handleLogout, currentUser }) {
         <>
         <div className="navbar-outer">
             <div>
-                <span>Home</span>
+                <span>
+                    <Link to="/">Home</Link>
+                </span>
+                <span>
+                    <Link to="/reservations">MyReservations</Link>
+                </span>
             </div>
             <div>
                 <span>{currentUser.username}</span>

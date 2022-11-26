@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams, useLocation, useNavigate } from "react-router-dom";
 
 
 export default function ReserveContainer({ currentUser }) {
@@ -20,6 +20,8 @@ export default function ReserveContainer({ currentUser }) {
     const timestampString = id.toString()
     console.log(timestampString)
 
+    const navigate = useNavigate();
+
     function handleSubmit(e) {
         e.preventDefault()
 
@@ -39,7 +41,7 @@ export default function ReserveContainer({ currentUser }) {
                 if (data.errors) {
                     setErrors(data.errors)
                 } else {
-                    
+                    navigate('/reservations')
                 }
             })
     }

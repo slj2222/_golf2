@@ -6,6 +6,7 @@ import HomeContainer from './components/HomeContainer';
 import Navbar from './components/Navbar';
 import DayContainer from './components/DayContainer';
 import ReserveContainer from './components/ReserveContainer';
+import MyReservationsContainer from './components/MyReservationsContainer';
 
 // import logo from './logo.svg';
 import './App.css';
@@ -136,6 +137,7 @@ function App() {
             <Route path='/' element={<HomeContainer currentUser={currentUser} allTeeDays={allTeeDays} />} />
             <Route path='/calendar/:id' element={<DayContainer rightNowDateOnly={rightNowDateOnly}  />} />
             <Route path='/calendar/:day/:id' element={<ReserveContainer currentUser={currentUser} />} />
+            <Route path='/reservations' element={<MyReservationsContainer currentUser={currentUser} />} />
           </Routes>
 
         </>
