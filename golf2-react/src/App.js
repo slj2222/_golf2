@@ -28,6 +28,13 @@ function App() {
   const yesterdayDateOnly = new Date(yesterdayDate.setHours(0, 0, 0, 0))
   // console.log(yesterdayDateOnly)
 
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     console.log('This will run after 1 second!')
+  //   }, 5000);
+  //   return () => clearTimeout(timer);
+  // }, []);
+
   useEffect(() => {
     fetch("http://localhost:3001/logged_in", { credentials: 'include' })
       .then((response) =>

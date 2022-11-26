@@ -1,6 +1,8 @@
 class ReservationsController < ApplicationController
     def index 
-        render json: Reservation.all
+        # render json: Reservation.all
+        thisDayReservation = Reservation.where("reservation_timestamp LIKE ?", "#{query_params[:q]}%").all
+        render json: thisDayReservation
     end
     
     def create 
@@ -9,7 +11,7 @@ class ReservationsController < ApplicationController
     end
 
     def show
-        thisDayReservation = Reservation.where("reservation_timestamp LIKE ?", params[:q]).all
+        thisDayReservation = Reservation.where("reservation_timestamp LIKE ?", "#{query_params[:q]}%").all
         render json: thisDayReservation
     end
 

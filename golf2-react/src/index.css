@@ -44,3 +44,10 @@ button {
 .button {
   margin-top: 10%;
 }
+
+.navbar-outer { 
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+

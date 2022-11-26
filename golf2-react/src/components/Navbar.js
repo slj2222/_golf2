@@ -25,6 +25,7 @@ export default function Navbar({ handleLogout, currentUser }) {
 
     return (
         <>
+        <div className="navbar-outer">
             <div>
                 <span>Home</span>
             </div>
@@ -34,6 +35,7 @@ export default function Navbar({ handleLogout, currentUser }) {
                     <Link to="/" onClick={handleClick}>Logout</Link>                
                 </span>
             </div>
+        </div>
         </>
     )
 }
