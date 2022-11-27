@@ -6,6 +6,19 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
+  background-color: #1D415F;
+  color: #688DAB;
+  /* font-family: 'Nerko One', cursive; */
+  font-family: 'Exo 2', sans-serif;
+
+/* background-image: url("../public/tekstura-tekstury-fon-linii.jpg"); */
+background-image: url("https://cdn.pixabay.com/photo/2016/11/21/17/59/blackboard-1846865_1280.jpg");
+}
+
+a {
+  color: #688DAB;
+  text-decoration: none;
+  
 }
 
 code {
@@ -17,6 +30,15 @@ html {
   width: 100%;
   height: 100%;
 }
+
+/* ROOT */
+#root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;;
+}
+
 
 .flex {
   display: flex;
@@ -30,9 +52,7 @@ html {
   margin-top: 20%;
 }
 
-#root {
-  height: 100%;
-}
+
 
 form {
   display: flex;
@@ -59,26 +79,91 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   height: 65%;
+  width: 70%;
+  margin-top: 2%;
+  border: solid white 2px;
+  border-radius: 2%;
+
+  /* background-image: url("../public/tekstura-tekstury-fon-linii.jpg"); */
+  background-color: #1D415F;
 }
 
 .outer-flex-row {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  /* border: solid green 1px; */
+  height: 90%;
+  align-items: center;
+  justify-content: space-around;
 }
+
+.week-time-card {
+  width: 20%;
+  height: 20%;
+  border: solid black 1px;
+  background-color: #1D415F;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 1.5vw;
+}
+
 
 .day-time-card {
   width: 25%;
   height: 25%;
   text-align: center;
+  border: solid orange 1px;
 }
 
-.week-time-card {
-  width: 20%;
-  height: 70%;
-}
+
 
 .h45 {
   height: 45%;
+}
+
+/* BOLD */
+.bold {
+  font-weight: bold;
+}
+
+/* NAVBAR */
+.navbar-outer {
+  background-color: white;
+  width: 100%;
+  height: 6%;
+}
+
+.navbar-left {
+  /* background-color: orange; */
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.navbar-right {
+  /* background-color: orange; */
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.nav-span {
+  width: 35%;
+  /* border: 1px solid red; */
+  font-size: 1.8vw;
+  /* text-align: center; */
 }

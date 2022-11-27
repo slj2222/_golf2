@@ -13,12 +13,12 @@ export default function ReserveContainer({ currentUser }) {
 
     const location = useLocation()
     const { from } = location.state
-    console.log(from)
+    // console.log(from)
     const reservationDateString = new Date(`${from} ${id}`).toString()
-    console.log(reservationDateString)
+    // console.log(reservationDateString)
 
     const timestampString = id.toString()
-    console.log(timestampString)
+    // console.log(timestampString)
 
     const navigate = useNavigate();
 

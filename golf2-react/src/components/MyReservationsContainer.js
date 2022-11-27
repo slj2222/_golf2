@@ -3,7 +3,7 @@ import React from "react";
 import MyReservationCard from "./MyReservationCard";
 
 export default function MyReservationsContainer({ currentUser }) {
-    console.log(currentUser)
+    // console.log(currentUser)
     const [myReservations, setMyReservations] = useState([])
     console.log(myReservations)
     
@@ -16,7 +16,7 @@ export default function MyReservationsContainer({ currentUser }) {
     }, [currentUser])
 
     const mapMyReservations = myReservations.map(reservation => (
-        <MyReservationCard key={reservation.reservation_timestamp} reservationTimeStamp={reservation.reservation_timestamp} />
+        <MyReservationCard key={reservation.id} reservationId={reservation.id} reservationTimeStamp={reservation.reservation_timestamp} />
     ))
 
     return (

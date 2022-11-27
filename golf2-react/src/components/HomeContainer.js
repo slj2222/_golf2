@@ -8,7 +8,7 @@ export default function HomeContainer({ allTeeDays }) {
     ))
     return (
         <div className="outer-flex-column">
-            **HOME**
+            <div></div>
             <div className="outer-flex-row four">
                 {mapAllTeeDays}
             </div>

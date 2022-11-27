@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import DayContainer from './components/DayContainer';
 import ReserveContainer from './components/ReserveContainer';
 import MyReservationsContainer from './components/MyReservationsContainer';
+import MyReservationDetailedCard from './components/MyReservationDetailedCard';
 
 // import logo from './logo.svg';
 import './App.css';
@@ -14,7 +15,7 @@ import './App.css';
 function App() {
 
   const [currentUser, setCurrentUser] = useState(null)
-  console.log(currentUser)
+  // console.log(currentUser)
 
   const [allTeeDays, setAllTeeDays] = useState([])
 
@@ -45,10 +46,10 @@ function App() {
           .then(data => {
             if (data.logged_in === true) {
               setCurrentUser(data)
-              console.log(data)
+              // console.log(data)
             } else {
               handleLogout()
-              console.log(data)
+              // console.log(data)
             }
           })
       }
@@ -56,7 +57,7 @@ function App() {
   }, [])
 
   function handleLogin(user) {
-    console.log(user)
+    // console.log(user)
     setCurrentUser(user)
   }
 
@@ -138,6 +139,7 @@ function App() {
             <Route path='/calendar/:id' element={<DayContainer rightNowDateOnly={rightNowDateOnly}  />} />
             <Route path='/calendar/:day/:id' element={<ReserveContainer currentUser={currentUser} />} />
             <Route path='/reservations' element={<MyReservationsContainer currentUser={currentUser} />} />
+            <Route path='/reservations/:id' element={<MyReservationDetailedCard />} />
           </Routes>
 
         </>

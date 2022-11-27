@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 export default function Navbar({ handleLogout, currentUser }) {
-    // console.log(currentUser)
+    console.log(currentUser)
     const [errors, setErrors] = useState('')
 
     function handleClick() {
@@ -24,23 +24,23 @@ export default function Navbar({ handleLogout, currentUser }) {
 
 
     return (
-        <>
+        
         <div className="navbar-outer">
-            <div>
-                <span>
-                    <Link to="/">Home</Link>
+            <div className="navbar-left">
+                <span className="nav-span bold">
+                    <Link to="/">HOME</Link>
                 </span>
-                <span>
-                    <Link to="/reservations">MyReservations</Link>
+                <span className="nav-span bold">
+                    <Link to="/reservations">MY RESERVATIONS</Link>
                 </span>
             </div>
-            <div>
-                <span>{currentUser.username}</span>
-                <span>
-                    <Link to="/" onClick={handleClick}>Logout</Link>                
+            <div className="navbar-right">
+                <span className="nav-span bold">{currentUser.user.username}</span>
+                <span className="nav-span bold">
+                    <Link to="/" onClick={handleClick}>LOGOUT</Link>                
                 </span>
             </div>
         </div>
-        </>
+ 
     )
 }

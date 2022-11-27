@@ -14,8 +14,8 @@ export default function DayContainer({ rightNowDateOnly }) {
     // console.log(new Date(id))
 
     const [thisDayTeeTimes, setThisDayTeeTimes] = useState([])
-    const [apiState, setApiState] = useState([])
-    // const apiReservationTimes = []
+    // const [apiState, setApiState] = useState([])
+    
 
     const [apiReservations, setApiReservations] = useState([])
     // console.log(apiReservations)
@@ -141,9 +141,7 @@ export default function DayContainer({ rightNowDateOnly }) {
             <div>
                 {id.toString()}
             </div>
-            <div>
-                ()
-            </div>
+
             <div className="outer-flex-row">
                 {mapThisDayTeeTimes}
             </div>

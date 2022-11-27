@@ -16,7 +16,6 @@ export default function DayTimeCard({ time, apiReservations }) {
 
     return (
         <div className="day-time-card">
-            
             <Link to={`/calendar/${id}/${timeFormatted}`} state={{ from: `${id}`}}>
                 {timeFormatted}
             </Link>
