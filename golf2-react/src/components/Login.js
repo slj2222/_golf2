@@ -69,8 +69,8 @@ export default function Login({ handleLogin }) {
                 <button placeholder="submit" type="submit">
                     Log In
                 </button>
-                <div className="button">
-                    or <Link to='/signup'>sign up</Link>     
+                <div className="button white-light">
+                    or <Link className="white-light"to='/signup'>sign up</Link>     
                 </div>
                 {errors ? (
                         <div> {errors} </div>

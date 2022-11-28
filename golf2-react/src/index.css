@@ -16,6 +16,8 @@ body {
   /* background-image: url("../public/photo-1514480573427-1f96cbed6a27 (1) copy.jpg"); */
   background-image: url("../public/Screenshot 2022-11-27 at 5.46.14 PM.png");
   background-size: cover;
+  /* overflow: hidden; */
+  
 }
 
 a {
@@ -59,8 +61,16 @@ html {
 }
 
 .login-outer {
-  height: 100%;
-  margin-top: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60%;
+  width: 50%;
+  margin-top: 7%;
+  border: solid rgba(255, 255, 255, 0.81) 4px;
+  border-radius: 25px;
+  background-color: #1d415f7e;
 }
 
 
@@ -91,7 +101,7 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 70%;
+  height: 80%;
   width: 70%;
   margin-top: 2%;
   border: solid rgba(255, 255, 255, 0.81) 4px;
@@ -187,11 +197,17 @@ button {
 .inner-flex-reservation {
   display: flex;
   flex-direction: column;
+  /* border: solid red; */
+  height: 92%;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
 }
+
 
 .reservation-card {
   width: 65%;
-  height: 20%;
+  min-height: 18%;
   /* border: solid black 1px; */
   border-radius: 25px;
   background-color: #496378f0;
@@ -204,4 +220,34 @@ button {
   font-size: 1.5vw;
   text-align: center;
   margin-top: 2%;
+}
+
+.button-container {
+  position: absolute;
+  top: 10%;
+  display: flex;
+  /* border: solid white 3px; */
+  width: 15%;
+  height: 5%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+}
+.flex-end {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 80%;
+  width: 70%;
+  margin-top: 2%;
+  border: solid rgba(255, 255, 255, 0.81) 4px;
+  border-radius: 25px;
+  overflow-y: auto;
+  /* background-image: url("../public/tekstura-tekstury-fon-linii.jpg"); */
+  background-color: #1d415f7e;
+}
+.flex-end::-webkit-scrollbar { 
+  /* width: 0 !important  */
+  display: none;
 }
