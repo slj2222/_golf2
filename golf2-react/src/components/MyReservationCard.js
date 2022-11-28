@@ -1,20 +1,24 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function MyReservationCard({ reservationTimeStamp, reservationId }) {
-    const { id } = useParams()
+    console.log(typeof(reservationTimeStamp))
+    const reservation = new Date(reservationTimeStamp).toLocaleString()
     return (
-        <div>
-            {reservationTimeStamp}
-            <div>
+        
+            <div className="reservation-card">
                 
-                    <Link to={`/reservations/${reservationId}`}>
-                        <button>
-                            view / edit
-                        </button>
-                    </Link>
+                <div>
+                    {reservationTimeStamp.substring(0, 3)}, {reservation}
+                    {/* {reservation} */}
+                </div>
+                <Link to={`/reservations/${reservationId}`}>
+                    <button>
+                        view / edit
+                    </button>
+                </Link>
                 
             </div>
-        </div>
+        
     )
 }

@@ -20,8 +20,11 @@ export default function MyReservationsContainer({ currentUser }) {
     ))
 
     return (
-        <div>
-            {mapMyReservations}
+        <div className="outer-flex-column">
+            {/* <div className="inner-flex-reservation"> */}
+                {mapMyReservations}
+            {/* </div> */}
+            
         </div>
     )
 }

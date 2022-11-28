@@ -12,13 +12,24 @@ body {
   font-family: 'Exo 2', sans-serif;
 
 /* background-image: url("../public/tekstura-tekstury-fon-linii.jpg"); */
-background-image: url("https://cdn.pixabay.com/photo/2016/11/21/17/59/blackboard-1846865_1280.jpg");
+/* background-image: url("https://cdn.pixabay.com/photo/2016/11/21/17/59/blackboard-1846865_1280.jpg"); */
+  /* background-image: url("../public/photo-1514480573427-1f96cbed6a27 (1) copy.jpg"); */
+  background-image: url("../public/Screenshot 2022-11-27 at 5.46.14 PM.png");
+  background-size: cover;
 }
 
 a {
   color: #688DAB;
   text-decoration: none;
   
+}
+
+.white {
+  color: rgba(255, 255, 255, 0.767);
+}
+
+.white-light {
+  color: white;
 }
 
 code {
@@ -80,14 +91,14 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 65%;
+  height: 70%;
   width: 70%;
   margin-top: 2%;
-  border: solid white 2px;
-  border-radius: 2%;
+  border: solid rgba(255, 255, 255, 0.81) 4px;
+  border-radius: 25px;
 
   /* background-image: url("../public/tekstura-tekstury-fon-linii.jpg"); */
-  background-color: #1D415F;
+  background-color: #1d415f7e;
 }
 
 .outer-flex-row {
@@ -101,16 +112,19 @@ button {
 }
 
 .week-time-card {
-  width: 20%;
+  width: 22%;
   height: 20%;
-  border: solid black 1px;
-  background-color: #1D415F;
+  /* border: solid black 1px; */
+  border-radius: 25px;
+  background-color: #496378f0;
+  color: white;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
   font-size: 1.5vw;
+  text-align: center;
 }
 
 
@@ -134,6 +148,7 @@ button {
 
 /* NAVBAR */
 .navbar-outer {
+  margin-top: 2%;
   background-color: white;
   width: 100%;
   height: 6%;
@@ -166,4 +181,27 @@ button {
   /* border: 1px solid red; */
   font-size: 1.8vw;
   /* text-align: center; */
+}
+
+/* MY RESERVATIONS */
+.inner-flex-reservation {
+  display: flex;
+  flex-direction: column;
+}
+
+.reservation-card {
+  width: 65%;
+  height: 20%;
+  /* border: solid black 1px; */
+  border-radius: 25px;
+  background-color: #496378f0;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5vw;
+  text-align: center;
+  margin-top: 2%;
 }
