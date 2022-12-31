@@ -3,3 +3,7 @@ class Reservation < ApplicationRecord
 
     validates :reservation_timestamp, presence: true
 end
+
+def thisDayReservations
+    reservation.where()
+end

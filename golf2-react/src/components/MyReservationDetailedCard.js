@@ -32,17 +32,20 @@ export default function MyReservationDetailedCard() {
 
 
         return (
-            <div>
-                {currentReservation.reservation_timestamp}
-                
+            <div className="flex-end">
+                <div>
+                    {currentReservation.reservation_timestamp}
+                </div>
             </div>
         )
     }
 
     return (
-        <div>
-            {currentReservation.reservation_timestamp}
-            <button onClick={handleCancelReservation}>Cancel Reservation</button>
+        <div className="outer-flex-column">
+            <div className="white-light">
+                {currentReservation.reservation_timestamp}
+                <button onClick={handleCancelReservation}>Cancel Reservation</button>
+            </div>
         </div>
     )
 }

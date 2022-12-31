@@ -24,10 +24,10 @@ class ReservationsController < ApplicationController
         render json: newReservation
     end
 
-    def show
-        thisDayReservation = Reservation.where("reservation_timestamp LIKE ?", "#{query_params[:q]}%").all
-        render json: thisDayReservation
-    end
+    # def show
+    #     thisDayReservation = Reservation.where("reservation_timestamp LIKE ?", "#{query_params[:q]}%").all
+    #     render json: thisDayReservation
+    # end
 
     def destroy
         deleteReservation = Reservation.find(params[:id])
@@ -36,6 +36,12 @@ class ReservationsController < ApplicationController
         else
             render json: {error: "Reservation not found"}, status: 404
         end
+    end
+
+    # ??????
+    def getTodaysReservations
+        todaysReservations = thisDayReservations(:q)
+        render json: todaysReservations
     end
 
     private
