@@ -135,14 +135,24 @@ export default function DayContainer({ rightNowDateOnly }) {
         <DayTimeCard key={time} time={time} />
     ))
 
+    const options = {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric',
+    }
+
+    const timeFormatted = new Date(id).toLocaleString("en-us", options)
+    console.log(timeFormatted)
+
+    
     return (
         
         <div className="outer-flex-column">
-            <div>
-                {id.toString()}
+            <div className="white-light">
+                {timeFormatted}
             </div>
 
-            <div className="outer-flex-row">
+            <div className="outer-flex-row-day">
                 {mapThisDayTeeTimes}
             </div>
         </div>

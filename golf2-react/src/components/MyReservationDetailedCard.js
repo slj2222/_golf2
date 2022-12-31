@@ -8,6 +8,8 @@ export default function MyReservationDetailedCard() {
 
     const { id } = useParams()
     const navigate = useNavigate()
+    const now = new Date()
+    console.log(now)
 
     useEffect(() => {
         fetch(`http://localhost:3001/myreservation/${id}`)
@@ -19,11 +21,23 @@ export default function MyReservationDetailedCard() {
     function handleCancelReservation() {
         fetch(`http://localhost:3001/reservations/${id}`, {
             method: 'DELETE',
-            headers: { 'Content-Type': 'application/json'}
+            headers: { 'Content-Type': 'application/json' }
         })
         navigate('/reservations')
     }
 
+    console.log(currentReservation)
+
+    if (new Date(currentReservation.reservation_timestamp).valueOf() < now.valueOf()) {
+
+
+        return (
+            <div>
+                {currentReservation.reservation_timestamp}
+                
+            </div>
+        )
+    }
 
     return (
         <div>
