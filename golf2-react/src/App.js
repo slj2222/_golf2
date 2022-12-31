@@ -20,15 +20,22 @@ function App() {
   const [allTeeDays, setAllTeeDays] = useState([])
 
   const rightNowDate = new Date()
-  // console.log(rightNow)
+  // console.log(rightNowDate)
   const rightNowDateOnly = new Date(rightNowDate.setHours(0, 0, 0, 0))
   // console.log(rightNowDateOnly)
 
-  const yesterdayDate = new Date(rightNowDate.setDate(rightNowDate.getDate() - 1))
-  // console.log(yesterdayDate)
+  let loadDate = ''
 
-  const yesterdayDateOnly = new Date(yesterdayDate.setHours(0, 0, 0, 0))
-  // console.log(yesterdayDateOnly)
+// console.log(new Date().getHours())
+  if (new Date().getHours() >= 16) {
+    loadDate = new Date()
+  } else {
+    loadDate = new Date(rightNowDate.setDate(rightNowDate.getDate() - 1))
+    // console.log(loadDate)
+  }
+
+  const loadDateDateOnly = new Date(loadDate.setHours(0, 0, 0, 0))
+  // console.log(loadDateDateOnly)
 
   // useEffect(() => {
   //   const timer = setTimeout(() => {
@@ -72,7 +79,7 @@ function App() {
     let n = 14
     for (let i = 0; i < n; i++) {
       // const sevenAm = new Date(rightNow.setHours(i,0,0))
-      const twoWeeksOut = yesterdayDateOnly.setDate(yesterdayDateOnly.getDate() + 1)
+      const twoWeeksOut = loadDateDateOnly.setDate(loadDateDateOnly.getDate() + 1)
       // console.log(typeof(twoWeeksOut))
       const twoWeeksOutString = new Date(twoWeeksOut)
       // console.log((twoWeeksOutString))
@@ -88,12 +95,16 @@ function App() {
   
 
 
+const [nonPrivateUsers, setNonPrivateUsers] = useState([])
+
+  useEffect(() => {
+    fetch('http://localhost:3001/users')
+        .then(res => res.json())
+        .then(data => setNonPrivateUsers(data))
+}, [])
 
 
-
-
-
-
+// console.log(nonPrivateUsers)
 
 
 
@@ -135,7 +146,7 @@ function App() {
           <Routes>
 
 
-            <Route path='/' element={<HomeContainer currentUser={currentUser} allTeeDays={allTeeDays} />} />
+            <Route path='/' element={<HomeContainer currentUser={currentUser} allTeeDays={allTeeDays} nonPrivateUsers={nonPrivateUsers} />} />
             <Route path='/calendar/:id' element={<DayContainer rightNowDateOnly={rightNowDateOnly}  />} />
             <Route path='/calendar/:day/:id' element={<ReserveContainer currentUser={currentUser} />} />
             <Route path='/reservations' element={<MyReservationsContainer currentUser={currentUser} />} />

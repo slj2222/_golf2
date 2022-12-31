@@ -33,6 +33,7 @@ export default function Login({ handleLogin }) {
                     setErrors(data.errors)
                 } else {
                     handleLogin(data.user)
+                    // navigate('/')
                 }
             // TODO: not working when incorrect login
             // navigate('/')
@@ -70,7 +71,7 @@ export default function Login({ handleLogin }) {
                     Log In
                 </button>
                 <div className="button white-light">
-                    or <Link className="white-light"to='/signup'>sign up</Link>     
+                    or <Link className="white-light" to='/signup'>sign up</Link>     
                 </div>
                 {errors ? (
                         <div> {errors} </div>
