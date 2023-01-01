@@ -16,20 +16,36 @@ export default function DayTimeCard({ timeObj, apiReservations }) {
 
     if (timeObj.spotsAvailable === 0) {
         spotsAvailable = 'Not available'
+
+        return (
+            <div className="day-time-card">
+    
+                    <div className="white-light">
+                        {timeFormatted}
+                    </div>
+                    <div className="white">
+                        {spotsAvailable}
+                    </div>
+    
+            </div>
+        )
+
     } else {
         spotsAvailable = `Players: ${timeObj.spotsAvailable}`
+
+        return (
+            <div className="day-time-card">
+                <Link to={`/calendar/${id}/${timeFormatted}`} state={{ from: `${id}`}}>
+                    <div className="white-light">
+                        {timeFormatted}
+                    </div>
+                    <div className="white">
+                        {spotsAvailable}
+                    </div>
+                </Link>
+            </div>
+        )
     }
 
-    return (
-        <div className="day-time-card">
-            <Link to={`/calendar/${id}/${timeFormatted}`} state={{ from: `${id}`}}>
-                <div className="white-light">
-                    {timeFormatted}
-                </div>
-                <div className="white">
-                    {spotsAvailable}
-                </div>
-            </Link>
-        </div>
-    )
+    
 }

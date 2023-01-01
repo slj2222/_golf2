@@ -188,6 +188,9 @@ export default function DayContainer({ rightNowDateOnly }) {
 
         <div className="outer-flex-column">
             <div className="white-light">
+            {new Date(id).toDateString().substring(0, 3)}
+            </div>
+            <div className="white-light">
                 {timeFormatted}
             </div>
 
